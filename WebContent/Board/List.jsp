@@ -7,7 +7,7 @@
     pageEncoding="UTF-8"%>
 <%
 BoardDAO dao = new BoardDAO(application);
-
+// 수정
 Map<String, Object> param = new HashMap<String, Object>(); 
 String searchField = request.getParameter("searchField");
 String searchWord = request.getParameter("searchWord");
