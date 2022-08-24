@@ -13,43 +13,36 @@ public class JDBConnect {
     public PreparedStatement psmt;  
     public ResultSet rs;
 
-    // µÎ ¹øÂ° »ý¼ºÀÚ
     public JDBConnect(String driver, String url, String id, String pwd) {
         try {
-            // JDBC µå¶óÀÌ¹ö ·Îµå
             Class.forName(driver);  
 
-            // DB¿¡ ¿¬°á
             con = DriverManager.getConnection(url, id, pwd);
 
-            System.out.println("DB ¿¬°á ¼º°ø(ÀÎ¼ö »ý¼ºÀÚ 1)");
+            System.out.println("DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Î¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1)");
         }
         catch (Exception e) {            
             e.printStackTrace();
         }
     }
 
-    // ¼¼ ¹øÂ° »ý¼ºÀÚ
     public JDBConnect(ServletContext application) {
         try {
-            // JDBC µå¶óÀÌ¹ö ·Îµå
             String driver = application.getInitParameter("OracleDriver"); 
             Class.forName(driver); 
 
-            // DB¿¡ ¿¬°á
             String url = application.getInitParameter("OracleURL"); 
             String id = application.getInitParameter("OracleId");
             String pwd = application.getInitParameter("OraclePwd");
             con = DriverManager.getConnection(url, id, pwd);
 
-            System.out.println("DB ¿¬°á ¼º°ø(ÀÎ¼ö »ý¼ºÀÚ 2)"); 
+            System.out.println("DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Î¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2)"); 
         }
         catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    // ¿¬°á ÇØÁ¦(ÀÚ¿ø ¹Ý³³)
     public void close() { 
         try {            
             if (rs != null) rs.close(); 
@@ -57,7 +50,7 @@ public class JDBConnect {
             if (psmt != null) psmt.close();
             if (con != null) con.close(); 
 
-            System.out.println("JDBC ÀÚ¿ø ÇØÁ¦");
+            System.out.println("JDBC ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
         catch (Exception e) {
             e.printStackTrace();

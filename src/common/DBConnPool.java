@@ -15,34 +15,30 @@ public class DBConnPool {
     public PreparedStatement psmt;
     public ResultSet rs;
 
-    // ±âº» »ý¼ºÀÚ
     public DBConnPool() {
         try {
-            // Ä¿³Ø¼Ç Ç®(DataSource) ¾ò±â
             Context initCtx = new InitialContext();
             Context ctx = (Context)initCtx.lookup("java:comp/env");
             DataSource source = (DataSource)ctx.lookup("dbcp_myoracle");
 
-            // Ä¿³Ø¼Ç Ç®À» ÅëÇØ ¿¬°á ¾ò±â
             con = source.getConnection();
 
-            System.out.println("DB Ä¿³Ø¼Ç Ç® ¿¬°á ¼º°ø");
+            System.out.println("DB Ä¿ï¿½Ø¼ï¿½ Ç® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
         catch (Exception e) {
-            System.out.println("DB Ä¿³Ø¼Ç Ç® ¿¬°á ½ÇÆÐ");
+            System.out.println("DB Ä¿ï¿½Ø¼ï¿½ Ç® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             e.printStackTrace();
         }
     }
 
-    // ¿¬°á ÇØÁ¦(ÀÚ¿ø ¹Ý³³)
     public void close() {
         try {            
             if (rs != null) rs.close();
             if (stmt != null) stmt.close();
             if (psmt != null) psmt.close();
-            if (con != null) con.close();  // ÀÚµ¿À¸·Î Ä¿³Ø¼Ç Ç®·Î ¹Ý³³µÊ
+            if (con != null) con.close();
 
-            System.out.println("DB Ä¿³Ø¼Ç Ç® ÀÚ¿ø ¹Ý³³");
+            System.out.println("DB Ä¿ï¿½Ø¼ï¿½ Ç® ï¿½Ú¿ï¿½ ï¿½Ý³ï¿½");
         }
         catch (Exception e) {
             e.printStackTrace();

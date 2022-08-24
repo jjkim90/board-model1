@@ -11,7 +11,6 @@ public class BoardDAO extends JDBConnect {
         super(application);
     }
 
-    // °Ë»ö Á¶°Ç¿¡ ¸Â´Â °Ô½Ã¹°ÀÇ °³¼ö¸¦ ¹ÝÈ¯
     public int selectCount(Map<String, Object> map) {
         int totalCount = 0;
 
@@ -28,14 +27,13 @@ public class BoardDAO extends JDBConnect {
             totalCount = rs.getInt(1);
         }
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° ¼ö¸¦ ±¸ÇÏ´Â Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
 
         return totalCount; 
     }
     
-    // °Ë»ö Á¶°Ç¿¡ ¸Â´Â °Ô½Ã¹° ¸ñ·ÏÀ» ¹ÝÈ¯
     public List<BoardDTO> selectList(Map<String, Object> map) { 
         List<BoardDTO> bbs = new Vector<BoardDTO>();
 
@@ -64,14 +62,13 @@ public class BoardDAO extends JDBConnect {
             }
         } 
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° Á¶È¸ Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
 
         return bbs;
     }
     
-    // °Ô½Ã±Û µ¥ÀÌÅÍ¸¦ ¹Þ¾Æ DB¿¡ Ãß°¡ 
     public int insertWrite(BoardDTO dto) {
         int result = 0;
         
@@ -89,14 +86,13 @@ public class BoardDAO extends JDBConnect {
             result = psmt.executeUpdate(); 
         }
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° ÀÔ·Â Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
         
         return result;
     }
 
-    // ÁöÁ¤ÇÑ °Ô½Ã¹°À» Ã£¾Æ ³»¿ëÀ» ¹ÝÈ¯
     public BoardDTO selectView(String num) { 
         BoardDTO dto = new BoardDTO();
         
@@ -121,14 +117,13 @@ public class BoardDAO extends JDBConnect {
             }
         } 
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° »ó¼¼º¸±â Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
         
         return dto; 
     }
 
-    // ÁöÁ¤ÇÑ °Ô½Ã¹°ÀÇ Á¶È¸¼ö¸¦ 1 Áõ°¡
     public void updateVisitCount(String num) { 
         String query = "UPDATE board SET "
                      + " visitcount=visitcount+1 "
@@ -140,12 +135,11 @@ public class BoardDAO extends JDBConnect {
             psmt.executeQuery(); 
         } 
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° Á¶È¸¼ö Áõ°¡ Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
     }
     
-    // ÁöÁ¤ÇÑ °Ô½Ã¹°À» ¼öÁ¤
     public int updateEdit(BoardDTO dto) { 
         int result = 0;
         
@@ -162,14 +156,13 @@ public class BoardDAO extends JDBConnect {
             result = psmt.executeUpdate();
         } 
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° ¼öÁ¤ Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
         
         return result; 
     }
 
-    // ÁöÁ¤ÇÑ °Ô½Ã¹°À» »èÁ¦
     public int deletePost(BoardDTO dto) { 
         int result = 0;
 
@@ -182,25 +175,23 @@ public class BoardDAO extends JDBConnect {
             result = psmt.executeUpdate(); 
         } 
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° »èÁ¦ Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
         
         return result;
     }
     
-    // È¸¿ø°¡ÀÔ µ¥ÀÌÅÍ¸¦ ¹Þ¾Æ DB¿¡ Ãß°¡ÇÕ´Ï´Ù. 
     public int insertMember(BoardDTO dto) {
         int result = 0;
         
         try {
-            // INSERT Äõ¸®¹® ÀÛ¼º 
             String query = "INSERT INTO member ( "
                          + " id,pass,name) "
                          + " VALUES ( "
                          + " ?, ?, ?)";  
 
-            psmt = con.prepareStatement(query);  // µ¿Àû Äõ¸® 
+            psmt = con.prepareStatement(query);  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
             psmt.setString(1, dto.getId());  
             psmt.setString(2, dto.getPass());
             psmt.setString(3, dto.getName());  
@@ -208,16 +199,15 @@ public class BoardDAO extends JDBConnect {
             result = psmt.executeUpdate(); 
         }
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° ÀÔ·Â Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
         
         return result;
     }
     
-    // °ü¸®ÀÚ ÆäÀÌÁö¿¡¼­ ÀüÃ¼ È¸¿ø ¸ñ·ÏÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
     public List<BoardDTO> selectMemberList(Map<String, Object> map) { 
-        List<BoardDTO> bbs = new Vector<BoardDTO>();  // °á°ú(°Ô½Ã¹° ¸ñ·Ï)¸¦ ´ãÀ» º¯¼ö
+        List<BoardDTO> bbs = new Vector<BoardDTO>();  // ï¿½ï¿½ï¿½(ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         String query = "SELECT * FROM member "; 
         if (map.get("searchWord") != null) {
@@ -227,11 +217,10 @@ public class BoardDAO extends JDBConnect {
         query += " ORDER BY regidate DESC "; 
 
         try {
-            stmt = con.createStatement();   // Äõ¸®¹® »ý¼º
-            rs = stmt.executeQuery(query);  // Äõ¸® ½ÇÇà
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
 
-            while (rs.next()) {  // °á°ú¸¦ ¼øÈ­ÇÏ¸ç...
-                // ÇÑ Çà(°Ô½Ã¹° ÇÏ³ª)ÀÇ ³»¿ëÀ» DTO¿¡ ÀúÀå
+            while (rs.next()) {
                 BoardDTO dto = new BoardDTO(); 
 
                 dto.setId(rs.getString("id"));
@@ -239,31 +228,28 @@ public class BoardDAO extends JDBConnect {
                 dto.setName(rs.getString("name"));
                 dto.setRegidate(rs.getDate("regidate"));
 
-                bbs.add(dto);  // °á°ú ¸ñ·Ï¿¡ ÀúÀå
+                bbs.add(dto);
             }
         } 
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° Á¶È¸ Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
 
         return bbs;
     }
 
-    // ÁöÁ¤ÇÑ È¸¿øÀ» Ã£¾Æ ³»¿ëÀ» ¹ÝÈ¯ÇÕ´Ï´Ù.
     public BoardDTO selectMember(String id) { 
         BoardDTO dto = new BoardDTO();
         
-        // Äõ¸®¹® ÁØºñ
         String query = "SELECT * FROM member " 
                      + " WHERE id=?";
 
         try {
             psmt = con.prepareStatement(query);
-            psmt.setString(1, id);    // ÀÎÆÄ¶ó¹ÌÅÍ¸¦ ÀÏ·Ã¹øÈ£·Î ¼³Á¤ 
-            rs = psmt.executeQuery();  // Äõ¸® ½ÇÇà 
+            psmt.setString(1, id); 
+            rs = psmt.executeQuery(); 
 
-            // °á°ú Ã³¸®
             if (rs.next()) {
                 dto.setId(rs.getString("id")); 
                 dto.setPass(rs.getString("pass"));
@@ -272,7 +258,7 @@ public class BoardDAO extends JDBConnect {
             }
         } 
         catch (Exception e) {
-            System.out.println("È¸¿ø Á¤º¸ º¸±â Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
         
@@ -280,26 +266,22 @@ public class BoardDAO extends JDBConnect {
     }
     
     
-    // °ü¸®ÀÚ ÆäÀÌÁö¿¡¼­ È¸¿ø Á¤º¸¸¦ »èÁ¦ÇÕ´Ï´Ù.
     public int deleteMember (BoardDTO dto) { 
         int result = 0;
 
         try {
-            // Äõ¸®¹® ÅÛÇÃ¸´
             String query = "DELETE FROM member WHERE id=?"; 
 
-            // Äõ¸®¹® ¿Ï¼º
             psmt = con.prepareStatement(query); 
             psmt.setString(1, dto.getId()); 
 
-            // Äõ¸®¹® ½ÇÇà
             result = psmt.executeUpdate(); 
         } 
         catch (Exception e) {
-            System.out.println("°Ô½Ã¹° »èÁ¦ Áß ¿¹¿Ü ¹ß»ý");
+            System.out.println("ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½");
             e.printStackTrace();
         }
         
-        return result; // °á°ú ¹ÝÈ¯
+        return result;
     }
 }
